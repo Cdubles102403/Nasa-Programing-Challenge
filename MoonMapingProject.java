@@ -1,9 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package moonmapingproject;
+
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -11,8 +10,19 @@ package moonmapingproject;
  */
 public class MoonMapingProject {
     
+    
     public static void main(String[] args){
-        Sketch sketch = new Sketch();
-        sketch.setup();
+        String[] values;
+        
+        try {
+            //Makes a new ListMaker class to read the file
+            ListMaker listMaker = new ListMaker();
+            
+            //tells listMaker to run the readFile method, and sets values equal to what is returned
+            values = listMaker.readFile();
+            
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not Found");
+        }
     }
 }
